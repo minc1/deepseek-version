@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Poppins:wght@300;500&display=swap');
+
+:root {
+    --primary: #ff3b6e;
+    --secondary: #ff99b1;
+    --accent: #ffd3d3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ff3b6e" d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>'), auto;
+}
+
+body {
+    background: linear-gradient(135deg, #2b0a12 0%, #6d214f 100%);
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    color: var(--accent);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.title {
+    font-family: 'Sacramento', cursive;
+    font-size: 4rem;
+    margin: 2rem 0;
+    animation: float 3s ease-in-out infinite;
+    text-shadow: 0 0 20px var(--primary);
+}
+
+.photo-collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 3rem 0;
+}
+
+.photo {
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.photo:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.message {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    animation: fadeIn 2s ease-in;
+}
+
+.button-container {
+    margin: 3rem 0;
+}
+
+.valentine-button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px rgba(255, 59, 110, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+.valentine-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(255, 59, 110, 0.8);
+}
+
+.valentine-button::before {
+    content: '❤️';
+    position: absolute;
+    opacity: 0;
+    animation: heartPulse 1.5s infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartPulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(3); opacity: 0; }
+}
+
+/* Confetti effect */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: var(--primary);
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+    .photo-collage {
+        grid-template-columns: 1fr;
+    }
+}
